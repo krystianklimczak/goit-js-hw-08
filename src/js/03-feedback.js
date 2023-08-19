@@ -44,7 +44,11 @@ message.addEventListener(
 
 submit.addEventListener('click', e => {
   e.preventDefault();
-  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+  if (!localStorage.getItem('feedback-form-state')) {
+    console.log(json);
+  } else {
+    console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+  }
   localStorage.clear();
   email.value = '';
   message.value = '';
