@@ -43,14 +43,34 @@ message.addEventListener(
   }, 500)
 );
 
+// submit.addEventListener('click', e => {
+//   e.preventDefault();
+//   if (!localStorage.getItem('feedback-form-state')) {
+//     console.log(json);
+//   } else {
+//     console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+//   }
+//   localStorage.clear();
+//   email.value = '';
+//   message.value = '';
+// });
+
 submit.addEventListener('click', e => {
   e.preventDefault();
-  if (!localStorage.getItem('feedback-form-state')) {
-    console.log(json);
+  const checkEmail = JSON.parse(localStorage.getItem('feedback-form-state'));
+  const validRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if (checkEmail !== null && checkEmail.email.match(validRegex)) {
+    if (!localStorage.getItem('feedback-form-state')) {
+      console.log(json);
+    } else {
+      console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+    }
+    localStorage.clear();
+    email.value = '';
+    message.value = '';
   } else {
-    console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+    alert('Invalid email address!');
   }
-  localStorage.clear();
-  email.value = '';
-  message.value = '';
 });
