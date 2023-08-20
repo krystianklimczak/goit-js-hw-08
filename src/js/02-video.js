@@ -1,8 +1,8 @@
 import Vimeo from '@vimeo/player';
+import _ from 'lodash';
 
 const iframe = document.querySelector('iframe');
 const player = new Vimeo(iframe);
-let _ = require('lodash');
 
 if (localStorage.getItem('videoplayer-current-time')) {
   player.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
