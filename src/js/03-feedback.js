@@ -13,9 +13,6 @@ if (localStorage.getItem('feedback-form-state')) {
   email.value = ffs.email;
   message.value = ffs.message;
 }
-// else {
-// localStorage.setItem('feedback-form-state', JSON.stringify(json));
-// }
 
 email.addEventListener(
   'input',
@@ -42,18 +39,6 @@ message.addEventListener(
     localStorage.setItem('feedback-form-state', JSON.stringify(actualValue));
   }, 500)
 );
-
-// submit.addEventListener('click', e => {
-//   e.preventDefault();
-//   if (!localStorage.getItem('feedback-form-state')) {
-//     console.log(json);
-//   } else {
-//     console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
-//   }
-//   localStorage.clear();
-//   email.value = '';
-//   message.value = '';
-// });
 
 submit.addEventListener('click', e => {
   e.preventDefault();
