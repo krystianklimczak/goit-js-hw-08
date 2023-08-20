@@ -47,14 +47,14 @@ submit.addEventListener('click', e => {
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   if (checkEmail !== null && checkEmail.email.match(validRegex)) {
-    if (!localStorage.getItem('feedback-form-state')) {
-      console.log(json);
+    if (checkEmail.message === '') {
+      alert(`Message can't be empty!`);
     } else {
       console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+      localStorage.clear();
+      email.value = '';
+      message.value = '';
     }
-    localStorage.clear();
-    email.value = '';
-    message.value = '';
   } else {
     alert('Invalid email address!');
   }
