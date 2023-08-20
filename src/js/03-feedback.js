@@ -1,4 +1,5 @@
-let _ = require('lodash');
+import _ from 'lodash';
+
 const email = document.querySelector('input[name="email"');
 const message = document.querySelector('textarea[name="message"');
 const submit = document.querySelector('button[type="submit"');
